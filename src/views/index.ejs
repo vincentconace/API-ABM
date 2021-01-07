@@ -1,0 +1,66 @@
+
+<%- include("./partials/_header") %>
+
+    <div class="container">
+        <div class="row">
+            <!-- FROM -->
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/add" method="POST">
+                            <div class="form-group">
+                                <input type="text" name="nombre" placeholder="Nombre" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="apellido" placeholder="Apellido" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="domicilio" placeholder="Domicilio" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="limite_credito" placeholder="Limite de Credito" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="date" name="fecha_alta" placeholder="Fecha de Alta" class="form-control">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Agregar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- LIST -->
+            <div class="col-md-9">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>N°</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Domicilio</th>
+                            <th>Limite Credito</th>
+                            <th>Fecha Alta</th>
+                            <th>Operationes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var i = 0; i < clientes.length; i++) { %>
+                            <tr>
+                                <td><%= i + 1%></td>
+                                <td><%= clientes[i].nombre%></td>
+                                <td><%= clientes[i].apellido%></td>
+                                <td><%= clientes[i].domicilio%></td>
+                                <td><%= clientes[i].limite_credito%></td>
+                                <td><%= clientes[i].fecha_alta%></td>
+                                <td>
+                                    <a href="/delete/<%= clientes[i]._id %>" class="btn btn-danger">Eliminar</a>
+                                    <a href="/editar/<%= clientes[i]._id %>" class="btn btn-info">Editar</a>
+                                </td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+<%- include("./partials/_footer") %>

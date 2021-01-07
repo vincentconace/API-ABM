@@ -1,0 +1,33 @@
+
+<%- include("./partials/_header") %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-5 offset-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/editar/<%= cliente._id %>" method="POST">
+                        <div class="form-group">
+                            <input type="text" name="nombre" placeholder="Nombre" class="form-control" value="<%= cliente.nombre %>">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="apellido" placeholder="Apellido" class="form-control" value="<%= cliente.apellido %>">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="domicilio" placeholder="Domicilio" class="form-control" value="<%= cliente.domicilio %>">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="limite_credito" placeholder="Limite de Credito" class="form-control" value="<%= cliente.limite_credito %>">
+                        </div>
+                        <div class="form-group">
+                            <input type="date" name="fecha_alta" placeholder="Fecha de Alta" class="form-control" value="<%= cliente.fecha_alta%>">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Actualizar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include("./partials/_footer") %>
